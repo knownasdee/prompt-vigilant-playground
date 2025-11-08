@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Container, Title } from "@mantine/core";
 
 export function Layout({ children }: { children: ReactNode }) {

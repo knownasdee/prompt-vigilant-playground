@@ -1,8 +1,134 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Modern Stylish Design */
 
-/* Mantine overrides (optional, can tweak later) */
+/* Basic styles */
 body {
-  @apply bg-gray-950 text-gray-100;
+  margin: 0;
+  padding: 0;
+  background: #FAFAFA;
+  min-height: 100vh;
+  color: #1A1A1A;
+  font-family: 'Lato', sans-serif;
 }
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Ensure Mantine dropdowns render correctly */
+[data-mantine-portal] {
+  z-index: 1000;
+}
+
+/* Hide any stray chevrons from Mantine's Combobox component */
+svg[data-combobox-chevron="true"],
+.mantine-ComboboxChevron-chevron,
+[class*="ComboboxChevron"] {
+  display: none;
+}
+
+/* Stylish cards with subtle backgrounds */
+.prompt-input-card,
+.metrics-bar-card,
+.response-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.prompt-input-card:hover,
+.response-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.metrics-bar-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+
+/* Clean button styling - purple accent */
+.mantine-Button-root:not(:disabled) {
+  background: #7B43A6 !important;
+  border: none !important;
+  transition: all 0.2s ease !important;
+  font-weight: 600 !important;
+  color: white !important;
+}
+
+.mantine-Button-root:hover:not(:disabled) {
+  background: #6B3A96 !important;
+  box-shadow: 0 4px 12px rgba(123, 67, 166, 0.3);
+}
+
+.mantine-Button-root:disabled {
+  background: #E5E5E5 !important;
+  color: #999999 !important;
+  opacity: 1;
+}
+
+/* Stylish input styling - base styles, can be overridden by component styles */
+.mantine-Textarea-input:not([style*="border"]),
+.mantine-NativeSelect-input:not([style*="border"]) {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: #1A1A1A !important;
+  transition: all 0.2s ease;
+}
+
+.mantine-Textarea-input:focus:not([style*="border-color"]),
+.mantine-NativeSelect-input:focus:not([style*="border-color"]) {
+  border-color: #7B43A6 !important;
+  box-shadow: 0 0 0 3px rgba(123, 67, 166, 0.08);
+  outline: none;
+  background: #FFFFFF !important;
+}
+
+.mantine-Textarea-label,
+.mantine-NativeSelect-label {
+  color: #333333 !important;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Title styling - purple accent */
+.mantine-Title-root {
+  color: #7B43A6 !important;
+  font-weight: 700;
+}
+
+/* Enhanced focus and hover states for prompt input */
+.prompt-input-card .mantine-Textarea-input:focus {
+  border-color: #7B43A6 !important;
+  box-shadow: 0 0 0 4px rgba(123, 67, 166, 0.1) !important;
+}
+
+.prompt-input-card .mantine-Textarea-input:hover:not(:disabled) {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.prompt-input-card .mantine-NativeSelect-input:focus {
+  border-color: #7B43A6 !important;
+  box-shadow: 0 0 0 4px rgba(123, 67, 166, 0.1) !important;
+}
+
+.prompt-input-card .mantine-NativeSelect-input:hover:not(:disabled) {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Responsive: Stack Select and Button vertically on mobile */
+@media (max-width: 640px) {
+  .prompt-input-controls {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .prompt-input-controls .mantine-NativeSelect-root,
+  .prompt-input-controls .mantine-Button-root {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+}
+

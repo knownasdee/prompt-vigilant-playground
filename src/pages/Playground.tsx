@@ -3,7 +3,7 @@ import type { RootState } from "../app/store";
 import { PromptInput } from "../components/PromptInput";
 import { ResponseCard } from "../components/ResponseCard";
 import { MetricsBar } from "../components/MetricsBar";
-import { Title } from "@mantine/core";
+import { Container, Stack, Center, Text } from "@mantine/core";
 
 export function Playground() {
   const { list, loading } = useAppSelector((s: RootState) => s.responses);
@@ -20,24 +20,30 @@ export function Playground() {
     : list.map((r) => ({ model: r.model, response: r.response, id: r.id, loading: false }));
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-8 px-4">
-      <div className="w-full max-w-2xl space-y-6">
-        <Title order={1} className="text-2xl font-bold text-center mb-6">
-          Prompt Playground
-        </Title>
-        <PromptInput />
-        <MetricsBar />
-        <div className="space-y-4">
-          {modelsToShow.map((item: { model: string; response?: string; id: string; loading: boolean }) => (
-            <ResponseCard
-              key={item.id}
-              model={item.model}
-              response={item.response}
-              loading={item.loading}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
+    <Center style={{ minHeight: "100vh", padding: "3rem 1.5rem", backgroundColor: "#FAFAFA" }}>
+      <Container size="xl" style={{ width: "100%", maxWidth: "1200px" }}>
+        <Stack gap="xl" py="xl">
+          <Text ta="left" size="md" style={{ color: "#6B7280", fontWeight: 400, lineHeight: 1.6, marginBottom: "2rem" }}>
+            Explore how different AI models respond to your prompts.
+          </Text>
+          <div style={{ marginBottom: "3rem" }}>
+            <PromptInput />
+          </div>
+          <div style={{ marginBottom: "3rem" }}>
+            <MetricsBar />
+          </div>
+          <Stack gap="lg">
+            {modelsToShow.map((item: { model: string; response?: string; id: string; loading: boolean }) => (
+              <ResponseCard
+                key={item.id}
+                model={item.model}
+                response={item.response}
+                loading={item.loading}
+              />
+            ))}
+          </Stack>
+        </Stack>
+      </Container>
+    </Center>
   );
 }

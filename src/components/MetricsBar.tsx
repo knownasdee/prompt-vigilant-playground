@@ -1,22 +1,41 @@
-import { Card, Text } from "@mantine/core";
+import { Text, Group } from "@mantine/core";
 
 export function MetricsBar() {
   return (
-    <Card
-      shadow="sm"
-      className="rounded-lg p-4 border border-gray-700/50"
-    >
-      <div className="flex flex-wrap justify-around gap-4 sm:gap-6">
-        <Text size="sm" className="font-medium text-gray-300">
-          Avg. Response Time: <span className="text-white">1.2s</span>
+    <Group justify="space-around" gap="xl" wrap="wrap" py="md">
+        <Text 
+          size="sm" 
+          fw={500} 
+          style={{ 
+            lineHeight: 1.6,
+            fontSize: "14px",
+            color: "#6B7280",
+          }}
+        >
+          Avg. Response Time: <Text span fw={700} style={{ color: "#7B43A6" }}>1.2s</Text>
         </Text>
-        <Text size="sm" className="font-medium text-gray-300">
-          Tokens: <span className="text-white">124</span>
+        <Text 
+          size="sm" 
+          fw={500} 
+          style={{ 
+            lineHeight: 1.6,
+            fontSize: "14px",
+            color: "#6B7280",
+          }}
+        >
+          Tokens: <Text span fw={700} style={{ color: "#7B43A6" }}>124</Text>
         </Text>
-        <Text size="sm" className="font-medium text-gray-300">
-          Models Tested: <span className="text-white">3</span>
+        <Text 
+          size="sm" 
+          fw={500} 
+          style={{ 
+            lineHeight: 1.6,
+            fontSize: "14px",
+            color: "#6B7280",
+          }}
+        >
+          Models Tested: <Text span fw={700} style={{ color: "#7B43A6" }}>3</Text>
         </Text>
-      </div>
-    </Card>
+      </Group>
   );
 }
