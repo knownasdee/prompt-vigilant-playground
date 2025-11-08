@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mantine overrides (optional, can tweak later) */
+body {
+  @apply bg-gray-950 text-gray-100;
+}
